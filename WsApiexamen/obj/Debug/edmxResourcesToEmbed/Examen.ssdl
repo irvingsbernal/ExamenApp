@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdiExamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblExamen">
+    <Key>
+      <PropertyRef Name="idExamen" />
+    </Key>
+    <Property Name="idExamen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Function Name="sp_DeleteExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idExamen" Type="int" Mode="In" />
+    <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+    <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="sp_GetExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idExamen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+    <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+    <Parameter Name="idExamen" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_UpdateExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idExamen" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+    <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="BdiExamenModelStoreContainer">
+    <EntitySet Name="tblExamen" EntityType="Self.tblExamen" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BdiExamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblExamen">
+          <Key>
+            <PropertyRef Name="idExamen" />
+          </Key>
+          <Property Name="idExamen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Function Name="sp_DeleteExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idExamen" Type="int" Mode="In" />
+          <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+          <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_GetExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idExamen" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+          <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+          <Parameter Name="idExamen" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_UpdateExamen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idExamen" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="codigoRetorno" Type="int" Mode="InOut" />
+          <Parameter Name="descripcionRetorno" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="BdiExamenModelStoreContainer">
+          <EntitySet Name="tblExamen" EntityType="Self.tblExamen" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BdiExamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblExamen">
+          <Key>
+            <PropertyRef Name="idExamen" />
+          </Key>
+          <Property Name="idExamen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="BdiExamenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblExamen" EntityType="Self.tblExamen" />
+          <FunctionImport Name="sp_DeleteExamen">
+            <Parameter Name="idExamen" Mode="In" Type="Int32" />
+            <Parameter Name="codigoRetorno" Mode="InOut" Type="Int32" />
+            <Parameter Name="descripcionRetorno" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetExamen" ReturnType="Collection(BdiExamenModel.sp_GetExamen_Result)">
+            <Parameter Name="idExamen" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertExamen">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="codigoRetorno" Mode="InOut" Type="Int32" />
+            <Parameter Name="descripcionRetorno" Mode="InOut" Type="String" />
+            <Parameter Name="idExamen" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateExamen">
+            <Parameter Name="idExamen" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="codigoRetorno" Mode="InOut" Type="Int32" />
+            <Parameter Name="descripcionRetorno" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetExamen_Result">
+          <Property Type="Int32" Name="idExamen" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="255" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BdiExamenModelStoreContainer" CdmEntityContainer="BdiExamenEntities">
+          <EntitySetMapping Name="tblExamen">
+            <EntityTypeMapping TypeName="BdiExamenModel.tblExamen">
+              <MappingFragment StoreEntitySet="tblExamen">
+                <ScalarProperty Name="idExamen" ColumnName="idExamen" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_DeleteExamen" FunctionName="BdiExamenModel.Store.sp_DeleteExamen" />
+          <FunctionImportMapping FunctionImportName="sp_GetExamen" FunctionName="BdiExamenModel.Store.sp_GetExamen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BdiExamenModel.sp_GetExamen_Result">
+                <ScalarProperty Name="idExamen" ColumnName="idExamen" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertExamen" FunctionName="BdiExamenModel.Store.sp_InsertExamen" />
+          <FunctionImportMapping FunctionImportName="sp_UpdateExamen" FunctionName="BdiExamenModel.Store.sp_UpdateExamen" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BdiExamenModelStoreContainer" CdmEntityContainer="BdiExamenEntities">
+    <EntitySetMapping Name="tblExamen">
+      <EntityTypeMapping TypeName="BdiExamenModel.tblExamen">
+        <MappingFragment StoreEntitySet="tblExamen">
+          <ScalarProperty Name="idExamen" ColumnName="idExamen" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_DeleteExamen" FunctionName="BdiExamenModel.Store.sp_DeleteExamen" />
+    <FunctionImportMapping FunctionImportName="sp_GetExamen" FunctionName="BdiExamenModel.Store.sp_GetExamen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BdiExamenModel.sp_GetExamen_Result">
+          <ScalarProperty Name="idExamen" ColumnName="idExamen" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_InsertExamen" FunctionName="BdiExamenModel.Store.sp_InsertExamen" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateExamen" FunctionName="BdiExamenModel.Store.sp_UpdateExamen" />
+  </EntityContainerMapping>
+</Mapping>

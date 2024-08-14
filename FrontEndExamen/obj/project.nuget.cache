@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4GgPWppXANqoGdwIW2NBrQ52vne6/CNLAxogbTnH5PdM+BuKDag2D6fo6LfiQWuppZO9ivHSqKs91NRLEjaltQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Marco\\source\\repos\\WsApiexamen\\FrontEndExamen\\FrontEndExamen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Marco\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}
